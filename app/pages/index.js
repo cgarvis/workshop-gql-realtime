@@ -1,14 +1,5 @@
-import React from 'react'
-import { Header } from 'semantic-ui-react'
-import Users from '../components/users';
-import Amplify from '../lib/auth';
-import { withAuthenticator } from 'aws-amplify-react';
+import dynamic from 'next/dynamic'
 
-const Chatty = ({ }) => (
-  <div>
-    <Header>Chatty</Header>
-    <Users/>
-  </div>
-)
+const Chatty = dynamic(import("../components/app"))
 
-export default withAuthenticator(Chatty);
+export default Chatty;
