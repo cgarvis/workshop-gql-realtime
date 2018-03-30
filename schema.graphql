@@ -1,4 +1,9 @@
-﻿type Conversation {
+﻿type User {
+  cognitoId: ID!
+  username: String!
+}
+
+type Conversation {
   #   The Conversation's timestamp.
   createdAt: String
   #   A unique identifier for the Conversation.
@@ -56,7 +61,3 @@ type Subscription {
     @aws_subscribe(mutations:["createUser"])
 }
 
-type User {
-  cognitoId: ID!
-  username: String!
-}
