@@ -1,0 +1,62 @@
+﻿type Conversation {
+  #   The Conversation's timestamp.
+  createdAt: String
+  #   A unique identifier for the Conversation.
+  id: ID!
+  #   The Conversation's messages.
+  messages(after: String, first: Int): MessageConnection
+  #   The Conversation's name.
+  name: String!
+}
+
+type ConversationsConnection {
+  conversations: [Conversation]
+  nextToken: String
+}
+
+type Message {
+  #   The author object. Note: `authorId` is only available because we list it in `extraAttributes` in `Conversation.messages`
+  author: User
+  #   The message content.
+  content: String!
+  #   The id of the Conversation this message belongs to. This is the table primary key.
+  conversationId: ID!
+  #   The message timestamp. This is also the table sort key.
+  createdAt: String
+  #   Generated id for a message -- read-only
+  id: ID!
+  #   Flag denoting if this message has been accepted by the server or not.
+  isSent: Boolean
+}
+
+type MessageConnection {
+  messages: [Message]
+  nextToken: String
+}
+
+type Mutation {
+  createConversation(createdAt: String, id: ID!, name: String!): Conversation
+  createMessage(content: String, conversationId: ID!, createdAt: String!, id: ID!): Message
+  createUser(username: String!): User
+}
+
+type Query {
+  conversations(after: String, first: Int): [ConversationsConnection]
+  converstation(conversationId: ID!): Conversation
+  me: User
+  users(after: String, first: Int): [User]
+}
+
+type Subscription {
+  subscribeToNewConversation: Conversation
+    @aws_subscribe(mutations:["createConversation"])
+  subscribeToNewMessage(conversationId: ID!): Message
+    @aws_subscribe(mutations:["createMessage"])
+  subscribeToNewUsers: User
+    @aws_subscribe(mutations:["createUser"])
+}
+
+type User {
+  cognitoId: ID!
+  username: String!
+}

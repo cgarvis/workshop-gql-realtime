@@ -1,0 +1,9 @@
+{
+  "name": "chatty",
+  "description": "",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::891750654027:role/chatty_lambda_function",
+  "defaultEnvironment": "dev",
+  "environment": {}
+}
