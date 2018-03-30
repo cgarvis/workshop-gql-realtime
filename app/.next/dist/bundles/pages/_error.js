@@ -72,17 +72,17 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "/Users/cgarvis/presentations/graphql-realtime/app/node_modules/next/dist/pages/_error.js":
+/***/ "/Users/jclark/sites/graphql-test/lecture3/app/node_modules/next/dist/pages/_error.js":
 /***/ (function(module, exports) {
 
-module.exports = require("/Users/cgarvis/presentations/graphql-realtime/app/node_modules/next/dist/pages/_error.js");
+module.exports = require("/Users/jclark/sites/graphql-test/lecture3/app/node_modules/next/dist/pages/_error.js");
 
 /***/ }),
 
 /***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("/Users/cgarvis/presentations/graphql-realtime/app/node_modules/next/dist/pages/_error.js");
+module.exports = __webpack_require__("/Users/jclark/sites/graphql-test/lecture3/app/node_modules/next/dist/pages/_error.js");
 
 
 /***/ })
